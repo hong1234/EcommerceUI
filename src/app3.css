@@ -1,0 +1,173 @@
+body {
+  background-color: #709b90;
+  font-family: "Helvetica", Arial, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    /* "title title" */
+    "nav nav"
+    "aside1 ."
+    "aside2 main";
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(4, auto);
+  gap: var(--gap-size);
+  max-inline-size: 1080px;
+  margin-inline: auto;
+}
+
+.nav1 {
+  grid-area: nav;
+}
+
+.main {
+  grid-area: main;
+}
+
+.tile {
+  padding: 1.5em;
+  background-color: #fff;
+}
+
+.tile > :first-child {
+  margin-top: 0;
+}
+
+.sidebar-top {
+  grid-area: aside1;
+}
+
+.sidebar-bottom {
+  grid-area: aside2;
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--gap-size);
+  margin: 0;
+  padding: 0.5em;
+  background-color: #5f4b44;
+  list-style-type: none;
+}
+
+.site-nav > li > a {
+  display: block;
+  padding: 0.5em 1em;
+  background-color: #cc6b5a;
+  color: white;
+  text-decoration: none;
+}
+
+.site-nav > .nav-right {
+  margin-inline-start: auto;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+ul.nav {
+  /* list-style: none; */
+  padding: 0;
+}
+
+nav {
+  height: 30px;
+  border-bottom: 5px solid white;
+}
+
+.nav {
+  /* margin: 0 auto; */
+  margin: 0;
+  width: 400px;
+}
+
+.nav a {
+  display: block;
+  text-decoration: none;
+}
+
+.nav > li {
+  float: left;
+  margin-right: 5px;
+}
+
+.nav > li > a {
+  height: 34px;
+  line-height: 34px;
+  padding: 0 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  border-radius: 3px 3px 0 0;
+  background-color: blue;
+}
+
+.nav > li > a:hover {
+  text-decoration: none;
+  background: blue;
+  background-color: navy;
+}
+
+.nav > li.active > a,
+.nav > li > a:active,
+.nav > .dropdown:hover > a {
+  background: white;
+  color: blue;
+}
+
+.dropdown {
+  position: relative;
+  border-bottom: 5px solid white;
+}
+
+.dropdown:hover ul {
+  display: block;
+}
+
+.dropdown ul {
+  display: none;
+  position: absolute;
+  top: 39px;
+  left: -1px;
+  z-index: 20000;
+  min-width: 160px;
+  padding: 0 0 5px;
+  background: blue;
+  border: 1px solid #dadada;
+  border-top: 0;
+  border-radius: 0 0 3px 3px;
+}
+
+/* .dropdown ul.large {
+  min-width: 200px;
+} */
+
+.dropdown li {
+  display: block;
+  margin: 0 18px;
+  overflow: visible;
+}
+
+.dropdown li + li {
+  border-top: 1px solid #eee;
+}
+
+.dropdown li a {
+  color: #fff;
+  padding: 8px 18px;
+  margin: 0 -18px;
+}
+
+.dropdown li a:hover {
+  background: navy;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
