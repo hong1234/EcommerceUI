@@ -17,6 +17,12 @@ function productReducer(state, action) {
     // case "logout":
     //   return { ...state, loggedIn: false };
 
+    case "clear":
+      return {
+        ...state,
+        products: [],
+      };
+
     case "init":
       return {
         ...state,
@@ -41,6 +47,14 @@ function productReducer(state, action) {
             title: action.item.title,
             price: action.item.price,
             quantity: action.item.quantity,
+            masstype: action.item.masstype,
+            color: action.item.color,
+            hoseVbung: action.item.hoseVbung,
+            hoseVmong: action.item.hoseVmong,
+            hoseDdui: action.item.hoseDdui,
+            hemdVco: action.item.hemdVco,
+            hemdVnach: action.item.hemdVnach,
+            hemdVnguc: action.item.hemdVnguc,
           },
         ],
         // products: newProducts,

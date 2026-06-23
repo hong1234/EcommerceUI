@@ -47,6 +47,10 @@ function getCartUuid() {
   return cartid;
 }
 
+function initCartUuid() {
+  sessionStorage.setItem("cartUuid", uuidv4());
+}
+
 function pages(ptotal) {
   let pages = [];
   for (let x = 0; x < ptotal; x++) {
@@ -323,7 +327,7 @@ function Detail({ prodId, setProdId }) {
           <select
             id="color"
             {...register("color", {
-              required: " farbe is required",
+              required: " Farbe ist erforderlich",
             })}
           >
             <option value=""></option>
@@ -352,7 +356,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hoseVbung"
                 {...register("hoseVbung", {
-                  required: " bundumfang is required 80-140",
+                  required: " Bundumfang 80-140 ist erforderlich",
                   min: {
                     value: 80,
                     message: "bundumfang must be at least 80 cm",
@@ -377,7 +381,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hoseVmong"
                 {...register("hoseVmong", {
-                  required: " hüftumfang is required 60-120",
+                  required: " Hüftumfang 60-120 ist erforderlich",
                   min: {
                     value: 60,
                     message: "hüftumfang must be at least 60 cm",
@@ -402,7 +406,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hoseVdui"
                 {...register("hoseVdui", {
-                  required: " oberschenkelumfang is required 40-80",
+                  required: " Oberschenkelumfang 40-80 ist erforderlich",
                   min: {
                     value: 40,
                     message: "oberschenkelumfang must be at least 40 cm",
@@ -425,7 +429,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hoseDdui"
                 {...register("hoseDdui", {
-                  required: " beinlänge is required 60-120",
+                  required: " Beinlänge 60-120 ist erforderlich",
                   min: {
                     value: 60,
                     message: "beinlänge must be at least 60 cm",
@@ -448,7 +452,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hoseDcang"
                 {...register("hoseDcang", {
-                  required: " schrittlänge is required 60-100",
+                  required: " Schrittlänge 60-100 ist erforderlich",
                   min: {
                     value: 60,
                     message: "schrittlänge must be at least 60 cm",
@@ -475,7 +479,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hemdVco"
                 {...register("hemdVco", {
-                  required: " halsumfang is required 30-60",
+                  required: " Halsumfang 30-60 ist erforderlich",
                   min: {
                     value: 30,
                     message: "halsumfang must be at least 30 cm",
@@ -497,7 +501,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hemdDvai"
                 {...register("hemdDvai", {
-                  required: " schulterbreite is required 60-120",
+                  required: " Schulterbreite 60-120 ist erforderlich",
                   min: {
                     value: 60,
                     message: "schulterbreite must be at least 60 cm",
@@ -519,7 +523,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hemdVnach"
                 {...register("hemdVnach", {
-                  required: " armloch is required 30-60",
+                  required: " Armloch 30-60 ist erforderlich",
                   min: {
                     value: 30,
                     message: "armloch must be at least 30 cm",
@@ -543,7 +547,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hemdVnguc"
                 {...register("hemdVnguc", {
-                  required: " brustumfang is required 80-120",
+                  required: " Brustumfang 80-120 ist erforderlich",
                   min: {
                     value: 80,
                     message: "brustumfang must be at least 80 cm",
@@ -567,7 +571,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hemdVeo"
                 {...register("hemdVeo", {
-                  required: " taillenumfang is required 60-100",
+                  required: " Taillenumfang 60-100 ist erforderlich",
                   min: {
                     value: 60,
                     message: "eo must be at least 60 cm",
@@ -589,7 +593,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hemdVcotay"
                 {...register("hemdVcotay", {
-                  required: " handgelenk is required 10-30",
+                  required: " Handgelenk 10-30 ist erforderlich",
                   min: {
                     value: 10,
                     message: "cotay must be at least 10 cm",
@@ -606,7 +610,6 @@ function Detail({ prodId, setProdId }) {
                 </span>
               )}
             </div>
-
             <div className={fieldStyle}>
               <label htmlFor="hemdDtay">Armlänge/dTay in cm</label>
               <br />
@@ -614,7 +617,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hemdDtay"
                 {...register("hemdDtay", {
-                  required: " armlänge is required 60-120",
+                  required: " Armlänge 60-120 ist erforderlich",
                   min: {
                     value: 60,
                     message: "armlänge must be at least 60 cm",
@@ -636,7 +639,7 @@ function Detail({ prodId, setProdId }) {
                 type="number"
                 id="hemdDao"
                 {...register("hemdDao", {
-                  required: " hemdlänge is required 60-120",
+                  required: " Hemdlänge 60-120 ist erforderlich ",
                   min: {
                     value: 60,
                     message: "hemdlänge must be at least 60 cm",
@@ -661,7 +664,7 @@ function Detail({ prodId, setProdId }) {
             type="number"
             id="pieces"
             {...register("pieces", {
-              required: " anzahl is required",
+              required: " Anzahl ist erforderlich",
               min: {
                 value: 1,
                 message: "anzahl muss mindestens 1 betragen",
@@ -725,6 +728,67 @@ function Product() {
       </p>
       <img className="" src={`/images/${product.imagename}`} alt="photo" />
     </div>
+  );
+}
+
+function Order() {
+  // const [items, setItems] = useState([]);
+  const [order, setOrder] = useState();
+  const { cartUuid } = useParams();
+  const getOrder = async (cartUuid) => {
+    const response = await fetch("http://localhost:8000/api/order/" + cartUuid);
+    const data = await response.json();
+    // setItems(data);
+    setOrder(data);
+  };
+
+  const handleFetch = useEffectEvent(() => {
+    getOrder(cartUuid);
+  });
+
+  useEffect(() => {
+    handleFetch();
+  }, [cartUuid]);
+
+  if (order == null) {
+    return null;
+    // return <div>the order don't exist</div>;
+  }
+
+  return (
+    <>
+      <main>
+        <p>
+          <b>Order</b>
+        </p>
+        <p>ID:{order.cartUuid}</p>
+        <p>
+          Customer: {order.customerFname}, {order.customerLname}
+        </p>
+        <p>
+          Total ink.Mwst:<b>{order.totalPrice}$</b>
+        </p>
+        <br />
+        <p>Artikel</p>
+        <ul>
+          {order.items.map((item) => (
+            <li key={item.id}>
+              <b>{item.title}</b>
+              <br />
+              {`${item.masstype}, ${item.color}, Prs:${item.price}$, Qty:${item.quantity}`}
+              <br />
+              {item.hoseVbung !== 0 ? `Bundumfang:${item.hoseVbung}` : ""}
+              {item.hoseVmong !== 0 ? `, Hüftumfang:${item.hoseVmong}` : ""}
+              {item.hoseDdui !== 0 ? `, Beinlänge:${item.hoseDdui}` : ""}
+
+              {item.hemdVco !== 0 ? `Halsumfang:${item.hemdVco}` : ""}
+              {item.hemdVnach !== 0 ? `, Armloch:${item.hemdVnach}` : ""}
+              {item.hemdVnguc !== 0 ? `, Brustumfang:${item.hemdVnguc}` : ""}
+            </li>
+          ))}
+        </ul>
+      </main>
+    </>
   );
 }
 
@@ -832,6 +896,73 @@ function SelectList() {
   );
 }
 
+function Best() {
+  const [products, setProducts] = useState([]);
+  const [prodId, setProdId] = useState(0);
+
+  const getBest = async () => {
+    const response = await fetch("http://localhost:8000/api/products/best");
+    const prods = await response.json();
+    setProducts(prods);
+    setProdId(0);
+  };
+
+  const handleFetch = useEffectEvent(() => {
+    getBest();
+  });
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
+
+  const eventHandler = (id) => {
+    setProdId(id);
+  };
+
+  if (!products.length) {
+    return (
+      <>
+        <div className="sidebar-bottom tile">
+          <p>
+            <b>There are't Best Products</b>
+          </p>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className="sidebar-bottom tile">
+        {/* <Cart />
+        <br /> */}
+        <p>
+          {/* <b>Best Products</b> */}
+          <b>Bestseller</b>
+        </p>
+        <br />
+        <ul>
+          {products.map((item) => (
+            <li key={item.id}>
+              <p>
+                {/* <FaStar color="red"  onClick={() => eventHandler(item.id)}/>{" "} */}
+                <FaStar color="red" /> <b>{item.title}</b>{" "}
+                {/* <button onClick={() => eventHandler(item.id)}>Detail</button> */}
+                <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
+              </p>
+              {item.descript}
+            </li>
+          ))}
+        </ul>
+        <br />
+      </div>
+      <div className="main tile">
+        {prodId !== 0 && <Detail prodId={prodId} setProdId={setProdId} />}
+      </div>
+    </>
+  );
+}
+
 function SearchList() {
   const [products, setProducts] = useState([]);
   const [prodId, setProdId] = useState(0);
@@ -914,6 +1045,8 @@ function SearchList() {
 function Cart() {
   // const [cart, setCart] = useState([]);
   const { state, dispatch } = useContext(AppContext);
+  const navigate = useNavigate();
+  // const cartUuid = getCartUuid();
 
   const getData = async (uuId) => {
     const response = await fetch("http://localhost:8000/api/cart/" + uuId);
@@ -924,6 +1057,7 @@ function Cart() {
 
   const handleFetch = useEffectEvent(() => {
     getData(getCartUuid());
+    // getData(cartUuid);
   });
 
   useEffect(() => {
@@ -931,14 +1065,15 @@ function Cart() {
   }, []);
 
   if (!state.products.length) {
-    return null;
+    // return null;
+    return <main>Der Warenkorb ist im Moment nicht leer.</main>;
   }
 
   return (
-    <>
-      <p>
-        <b>Cart</b>
-      </p>
+    <main>
+      <b>Cart</b>
+      <p>{`ID:${getCartUuid()}`}</p>
+      {/* <p>{`ID:${cartUuid}`}</p> */}
       <br />
       <ul>
         {state.products.map((item) => (
@@ -947,15 +1082,24 @@ function Cart() {
             <br /> */}
             <b>{item.title}</b>
             <br />
-            {`${item.masstype}, Prs:${item.price}$, Qty:${item.quantity}`}
+            {`${item.masstype}, ${item.color}, Prs:${item.price}$, Qty:${item.quantity}`}
             {/* {item.masstype == "hose" ? `| ${item.masstype}` : ""} */}
-            {/* {item.color} */}
-            {item.hoseVbung !== 0 ? `, vBung:${item.hoseVbung}` : ""}
-            {item.hemdVco !== 0 ? `, vCo:${item.hemdVco}` : ""}
+            <br />
+            {item.hoseVbung !== 0 ? `Bundumfang:${item.hoseVbung}` : ""}
+            {item.hoseVmong !== 0 ? `, Hüftumfang:${item.hoseVmong}` : ""}
+            {item.hoseDdui !== 0 ? `, Beinlänge:${item.hoseDdui}` : ""}
+
+            {item.hemdVco !== 0 ? `Halsumfang:${item.hemdVco}` : ""}
+            {item.hemdVnach !== 0 ? `, Armloch:${item.hemdVnach}` : ""}
+            {item.hemdVnguc !== 0 ? `, Brustumfang:${item.hemdVnguc}` : ""}
           </li>
         ))}
       </ul>
-    </>
+      <br />
+      {/* <button onClick={() => navigate(-1)}>Zurück</button> */}
+      <button onClick={() => navigate("/shop/products")}>Zum Katalog</button>
+      <button onClick={() => navigate("/shop/checkout")}>Checkout</button>
+    </main>
   );
 }
 
@@ -970,12 +1114,6 @@ function Catalog() {
   );
 }
 
-function Best() {
-  // const [searchParams] = useSearchParams();
-  // const [searchParams, setSearchParams] = useSearchParams();
-  return <h4>Best products</h4>;
-}
-
 function Header() {
   return (
     <>
@@ -984,13 +1122,16 @@ function Header() {
         <div className="">
           <ul className="navC">
             <li>
-              <Link to="/shop/products">Products</Link>
+              <Link to="/shop/products">|Products</Link>
             </li>
             <li>
-              <Link to="/shop/cart">Cart</Link>
+              <Link to="/shop/cart">|Cart</Link>
             </li>
+            {/* <li>
+              <Link to="/shop/checkout">Checkout</Link>
+            </li> */}
             <li>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact">|Contact</Link>
             </li>
             {/* <li>
               <Link to="/form">Form</Link>
@@ -1004,7 +1145,7 @@ function Header() {
 }
 
 function Footer() {
-  return <footer>Copyright &copy; VN Clothing</footer>;
+  return <footer> Copyright &copy; VN Clothing</footer>;
 }
 
 const Layout = () => {
@@ -1024,6 +1165,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
+
           {/* <Route path="cart" element={<Cart />} /> */}
           {/* <Route path="shop" element={<Shop />}> */}
           <Route path="shop/products" element={<Catalog />}>
@@ -1033,6 +1175,8 @@ function App() {
             {/* <Route path=":prodId" element={<Product />} /> */}
           </Route>
           <Route path="shop/cart" element={<Cart />} />
+          <Route path="shop/checkout" element={<Checkout />} />
+          <Route path="shop/order/:cartUuid" element={<Order />} />
 
           {/* <Route path="form" element={<EmailValidationForm />} />
           <Route path="form1" element={<Form />} />
@@ -1049,10 +1193,189 @@ function Contact() {
   // const [searchParams] = useSearchParams();
   // const [searchParams, setSearchParams] = useSearchParams();
   return (
-    <h4>
-      {/* Contact <i>{searchParams.get("option")}</i> */}
-      Contact
-    </h4>
+    <main>
+      <h4>
+        {/* Contact <i>{searchParams.get("option")}</i> */}
+        Contact
+      </h4>
+    </main>
+  );
+}
+
+function Checkout() {
+  // const [searchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  // const [product, setProduct] = useState();
+  const fieldStyle = "flex flex-col mb-2";
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "onBlur",
+    reValidateMode: "onBlur",
+    defaultValues: {
+      pieces: 1,
+    },
+  });
+  const {
+    // state,
+    dispatch,
+  } = useContext(AppContext);
+
+  // const getData = async (prodId) => {
+  //   const response = await fetch(
+  //     "http://localhost:8000/api/products/" + prodId,
+  //   );
+  //   const prod = await response.json();
+  //   setProduct(prod);
+  //   // return true;
+  // };
+
+  // const postData = async (prod, fdata) => {};
+
+  // private String customerAddress;
+
+  const postData = async (fdata) => {
+    const cartUuid = getCartUuid();
+    const cartOrderDTO = {
+      // cartUuid: getCartUuid(),
+      cartUuid: cartUuid,
+      customerFname: fdata.fname,
+      customerLname: fdata.lname,
+      customerEmail: fdata.email,
+      customerFonnumber: fdata.fonnumber,
+      customerAddress: fdata.address,
+    };
+
+    const response = await fetch("http://localhost:8000/api/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cartOrderDTO),
+    });
+
+    const order = await response.json();
+    console.log(order);
+    dispatch({ type: "clear" });
+    initCartUuid();
+    // navigate("/shop/order/" + getCartUuid());
+    navigate("/shop/order/" + cartUuid);
+
+    // if (response.ok) {
+    // toast.success("Task status updated!");
+    // getData();
+    // }
+  };
+
+  // Handle form submission
+  const onSubmit = (fdata) => {
+    // console.log("Form data", fdata);
+    // console.log("Product data", product);
+    // postData(product, fdata);
+    // setProdId(0);
+    // toast.success(`${fdata.pieces} ${product.title} is added to cart!`);
+    postData(fdata);
+    // toast.success(`Thank ${fdata.fname} ${fdata.lname} for this order`);
+  };
+
+  return (
+    <>
+      <main className="">
+        {/* Contact <i>{searchParams.get("option")}</i> */}
+        <b>Checkout</b>
+        <p>{`ID:${getCartUuid()}`}</p>
+        {/* <button onClick={() => navigate("/shop/products")}>Zum Katalog</button> */}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className={fieldStyle}>
+            <label htmlFor="fname">Your first name</label>
+            <br />
+            <input
+              type="text"
+              id="fname"
+              {...register("fname", {
+                required: " fname is required",
+              })}
+              // className={getEditorStyle(errors.name)}
+            />
+            {errors.fname && (
+              <span className="error-message">{errors.fname.message}</span>
+            )}
+          </div>
+          <div className={fieldStyle}>
+            <label htmlFor="lname">Your last name</label>
+            <br />
+            <input
+              type="text"
+              id="lname"
+              {...register("lname", {
+                required: " lname is required",
+              })}
+              // className={getEditorStyle(errors.name)}
+            />
+            {errors.lname && (
+              <span className="error-message">{errors.lname.message}</span>
+            )}
+          </div>
+          <div className={fieldStyle}>
+            <label htmlFor="email">Your email</label>
+            <br />
+            <input
+              type="email"
+              id="email"
+              {...register("email", {
+                required: " Email is required",
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: "Entered value does not match email format",
+                },
+              })}
+              // className={getEditorStyle(errors.email)}
+            />
+            {errors.email && (
+              <span className="error-message">{errors.email.message}</span>
+            )}
+          </div>
+          <div className={fieldStyle}>
+            <label htmlFor="fonnumber">Your Fonnumber</label>
+            <br />
+            <input
+              type="text"
+              id="fonnumber"
+              {...register("fonnumber", {
+                required: " Fonnumber is required",
+              })}
+              // className={getEditorStyle(errors.name)}
+            />
+            {errors.fonnumber && (
+              <span className="error-message">{errors.fonnumber.message}</span>
+            )}
+          </div>
+          <div className={fieldStyle}>
+            <label htmlFor="address">Your Address</label>
+            <br />
+            <input
+              type="text"
+              id="address"
+              {...register("address", {
+                required: " Address is required",
+              })}
+              // className={getEditorStyle(errors.address)}
+            />
+            {errors.address && (
+              <span className="error-message">{errors.address.message}</span>
+            )}
+          </div>
+          <div>
+            <button type="submit" className="">
+              Make Order
+            </button>
+          </div>
+        </form>
+      </main>
+    </>
   );
 }
 
