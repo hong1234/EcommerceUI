@@ -79,7 +79,7 @@ const SearchForm = () => {
         className=""
       />
       <button type="submit" className="">
-        Search
+        Suchen
       </button>
     </form>
   );
@@ -117,7 +117,6 @@ function Menu() {
           </li>
 
           <li className="dropdown">
-            {/* <a href="/">Books</a> */}
             <a>Damen</a>
             <ul>
               <li onClick={() => handleClick("damen-hose")}>
@@ -150,12 +149,6 @@ function Menu() {
                 <a>Laptops</a>
                 {/* <a href="/itemlist?category=Laptop">Laptops</a> */}
               </li>
-              {/* <li>
-                <a>Cameras </a>
-              </li> */}
-              {/* <li>
-                <a>Televisions</a>
-              </li> */}
             </ul>
           </li>
         </ul>
@@ -310,16 +303,23 @@ function Detail({ prodId, setProdId }) {
   return (
     <>
       {/* <Cart /> */}
-      {/* <p>
-        <b>Produktdetail {prodId}</b>
-      </p> */}
-      {/* <br /> */}
       <p className="">
-        <b>{product.title}</b>
+        <b>
+          {product.title} - {product.price}€
+        </b>
       </p>
-      <p>{product.descript}</p>
-      <p>{product.price}$</p>
+      {product.descript}
+      {/* <br />
+      {product.price}€ */}
+      <br />
+      <br />
       <img className="" src={`/images/${product.imagename}`} alt="photo" />
+      <br />
+      <br />
+      <p>
+        <b>Ihre individuellen Masse</b>
+      </p>
+      <br />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={fieldStyle}>
           <label htmlFor="color">Farbe</label>
@@ -359,11 +359,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Bundumfang 80-140 ist erforderlich",
                   min: {
                     value: 80,
-                    message: "bundumfang must be at least 80 cm",
+                    message: "Bundumfang muss mindestens 80 cm betragen",
                   },
                   max: {
                     value: 140,
-                    message: "bundumfang must be less than 140 cm",
+                    message: "Bundumfang muss weniger als 140 cm betragen",
                   },
                 })}
               />
@@ -384,11 +384,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Hüftumfang 60-120 ist erforderlich",
                   min: {
                     value: 60,
-                    message: "hüftumfang must be at least 60 cm",
+                    message: "Hüftumfang muss mindestens 60 cm betragen",
                   },
                   max: {
                     value: 120,
-                    message: "hüftumfang must be less than 120 cm",
+                    message: "Hüftumfang muss weniger als 120 cm betragen",
                   },
                 })}
               />
@@ -409,11 +409,13 @@ function Detail({ prodId, setProdId }) {
                   required: " Oberschenkelumfang 40-80 ist erforderlich",
                   min: {
                     value: 40,
-                    message: "oberschenkelumfang must be at least 40 cm",
+                    message:
+                      "Oberschenkelumfang muss mindestens 40 cm betragen",
                   },
                   max: {
                     value: 80,
-                    message: "oberschenkelumfang must be less than 80 cm",
+                    message:
+                      "Oberschenkelumfang muss weniger als 80 cm betragen",
                   },
                 })}
               />
@@ -432,11 +434,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Beinlänge 60-120 ist erforderlich",
                   min: {
                     value: 60,
-                    message: "beinlänge must be at least 60 cm",
+                    message: "Beinlänge muss mindestens 60 cm betragen",
                   },
                   max: {
                     value: 120,
-                    message: "beinlänge must be less than 120 cm",
+                    message: "Beinlänge muss weniger als 120 cm betragen",
                   },
                 })}
               />
@@ -455,11 +457,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Schrittlänge 60-100 ist erforderlich",
                   min: {
                     value: 60,
-                    message: "schrittlänge must be at least 60 cm",
+                    message: "Schrittlänge muss mindestens 60 cm betragen",
                   },
                   max: {
                     value: 100,
-                    message: "schrittlänge must be less than 100 cm",
+                    message: "Schrittlänge muss weniger als 100 cm betragen",
                   },
                 })}
               />
@@ -482,11 +484,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Halsumfang 30-60 ist erforderlich",
                   min: {
                     value: 30,
-                    message: "halsumfang must be at least 30 cm",
+                    message: "Halsumfang muss mindestens 30 cm betragen",
                   },
                   max: {
                     value: 60,
-                    message: "halsumfang must be less than 60 cm",
+                    message: "Halsumfang muss weniger als 60 cm betragen",
                   },
                 })}
               />
@@ -504,11 +506,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Schulterbreite 60-120 ist erforderlich",
                   min: {
                     value: 60,
-                    message: "schulterbreite must be at least 60 cm",
+                    message: "Schulterbreite muss mindestens 60 cm betragen",
                   },
                   max: {
                     value: 120,
-                    message: "schulterbreite must be less than 120 cm",
+                    message: "Schulterbreite muss weniger als 120 cm betragen",
                   },
                 })}
               />
@@ -526,11 +528,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Armloch 30-60 ist erforderlich",
                   min: {
                     value: 30,
-                    message: "armloch must be at least 30 cm",
+                    message: "Armloch muss mindestens 30 cm betragen",
                   },
                   max: {
                     value: 60,
-                    message: "armloch must be less than 60 cm",
+                    message: "Armloch muss weniger als 60 cm betragen",
                   },
                 })}
               />
@@ -550,11 +552,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Brustumfang 80-120 ist erforderlich",
                   min: {
                     value: 80,
-                    message: "brustumfang must be at least 80 cm",
+                    message: "Brustumfang muss mindestens 80 cm betragen",
                   },
                   max: {
                     value: 120,
-                    message: "brustumfang must be less than 120 cm",
+                    message: "Brustumfang muss weniger als 120 cm betragen",
                   },
                 })}
               />
@@ -574,11 +576,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Taillenumfang 60-100 ist erforderlich",
                   min: {
                     value: 60,
-                    message: "eo must be at least 60 cm",
+                    message: "Taillenumfang muss mindestens 60 cm betragen",
                   },
                   max: {
                     value: 100,
-                    message: "eo must be less than 100 cm",
+                    message: "Taillenumfang muss weniger als 100 cm betragen",
                   },
                 })}
               />
@@ -596,11 +598,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Handgelenk 10-30 ist erforderlich",
                   min: {
                     value: 10,
-                    message: "cotay must be at least 10 cm",
+                    message: "Handgelenk muss mindestens 10 cm betragen",
                   },
                   max: {
                     value: 30,
-                    message: "cotay must be less than 30 cm",
+                    message: "Handgelenk muss weniger als 30 cm betragen",
                   },
                 })}
               />
@@ -620,11 +622,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Armlänge 60-120 ist erforderlich",
                   min: {
                     value: 60,
-                    message: "armlänge must be at least 60 cm",
+                    message: "Armlänge muss mindestens 60 cm betragen",
                   },
                   max: {
                     value: 120,
-                    message: "armlänge must be less than 120 cm",
+                    message: "Armlänge muss weniger als 120 cm betragen",
                   },
                 })}
               />
@@ -642,11 +644,11 @@ function Detail({ prodId, setProdId }) {
                   required: " Hemdlänge 60-120 ist erforderlich ",
                   min: {
                     value: 60,
-                    message: "hemdlänge must be at least 60 cm",
+                    message: "Hemdlänge muss mindestens 60 cm betragen",
                   },
                   max: {
                     value: 120,
-                    message: "hemdlänge must be less than 120 cm",
+                    message: "Hemdlänge muss weniger als 120 cm betragen",
                   },
                 })}
               />
@@ -667,11 +669,11 @@ function Detail({ prodId, setProdId }) {
               required: " Anzahl ist erforderlich",
               min: {
                 value: 1,
-                message: "anzahl muss mindestens 1 betragen",
+                message: "Anzahl muss mindestens 1 betragen",
               },
               max: {
                 value: 100,
-                message: "anzahl muss kleiner als 100 sein",
+                message: "Anzahl muss kleiner als 100 sein",
               },
             })}
           />
@@ -687,9 +689,9 @@ function Detail({ prodId, setProdId }) {
         </div>
 
         <div>
-          {/* <br /> */}
+          <br />
           <button type="submit" className="">
-            <b>Add To Cart</b>
+            <b>Produkt in den Warenkorb legen</b>
           </button>
         </div>
       </form>
@@ -759,23 +761,36 @@ function Order() {
     <>
       <main>
         <p>
-          <b>Order</b>
+          <b>Vielen Dank für Ihre Bestellung</b>
         </p>
-        <p>ID:{order.cartUuid}</p>
+        <br />
+        Bestellung-Nr:
+        <br />
+        {order.cartUuid}
+        <br />
+        <br />
+        Gesamtbetrag inkl. MwSt:
+        <br />
+        <b>{order.totalPrice} €</b>
+        <br />
+        <br />
         <p>
-          Customer: {order.customerFname}, {order.customerLname}
+          Kunde:{" "}
+          <b>
+            {order.customerFname}, {order.customerLname}
+          </b>
         </p>
-        <p>
-          Total ink.Mwst:<b>{order.totalPrice}$</b>
-        </p>
+        <p>Email: {order.customerEmail}</p>
         <br />
         <p>Artikel</p>
         <ul>
           {order.items.map((item) => (
             <li key={item.id}>
-              <b>{item.title}</b>
+              <b>
+                {item.title} - {item.price}€
+              </b>
               <br />
-              {`${item.masstype}, ${item.color}, Prs:${item.price}$, Qty:${item.quantity}`}
+              {`${item.masstype}, Farbe:${item.color}, Anzahl:${item.quantity}`}
               <br />
               {item.hoseVbung !== 0 ? `Bundumfang:${item.hoseVbung}` : ""}
               {item.hoseVmong !== 0 ? `, Hüftumfang:${item.hoseVmong}` : ""}
@@ -784,6 +799,8 @@ function Order() {
               {item.hemdVco !== 0 ? `Halsumfang:${item.hemdVco}` : ""}
               {item.hemdVnach !== 0 ? `, Armloch:${item.hemdVnach}` : ""}
               {item.hemdVnguc !== 0 ? `, Brustumfang:${item.hemdVnguc}` : ""}
+              <br />
+              <br />
             </li>
           ))}
         </ul>
@@ -828,7 +845,6 @@ function SelectList() {
     getSelect(category, page);
   });
 
-  // console.log("render-sub-view");
   const eventHandler = (id) => {
     setProdId(id);
   };
@@ -841,11 +857,7 @@ function SelectList() {
     return (
       <>
         <div className="sidebar-bottom tile">
-          {/* <Cart /> */}
-          {/* <br /> */}
-          <p>
-            <b>No Produkte der Kategorie {`"${category}"`}</b>
-          </p>
+          <p>Keine Produkte in der Kategorie {`"${category}"`}</p>
         </div>
       </>
     );
@@ -1002,9 +1014,7 @@ function SearchList() {
         <div className="sidebar-bottom tile">
           {/* <Cart />
           <br /> */}
-          <p>
-            <b>No Products by keys {`"${keywords}"`}</b>
-          </p>
+          <p>Keine Produkte für Suchwort {`"${keywords}"`}</p>
         </div>
       </>
     );
@@ -1016,7 +1026,7 @@ function SearchList() {
         {/* <Cart />
         <br /> */}
         <p>
-          <b>Products by keys {`"${keywords}"`}</b>
+          <b>Produkte für Suchwort {`"${keywords}"`}</b>
         </p>
         <br />
         <ul>
@@ -1066,12 +1076,12 @@ function Cart() {
 
   if (!state.products.length) {
     // return null;
-    return <main>Der Warenkorb ist im Moment nicht leer.</main>;
+    return <main>Der Warenkorb ist leer im Moment.</main>;
   }
 
   return (
     <main>
-      <b>Cart</b>
+      <b>Warenkorb</b>
       <p>{`ID:${getCartUuid()}`}</p>
       {/* <p>{`ID:${cartUuid}`}</p> */}
       <br />
@@ -1080,9 +1090,11 @@ function Cart() {
           <li key={item.id}>
             {/* {item.productUuid}
             <br /> */}
-            <b>{item.title}</b>
+            <b>
+              {item.title} - {item.price}€
+            </b>
             <br />
-            {`${item.masstype}, ${item.color}, Prs:${item.price}$, Qty:${item.quantity}`}
+            {`${item.masstype}, Farbe:${item.color}, Anzahl:${item.quantity}`}
             {/* {item.masstype == "hose" ? `| ${item.masstype}` : ""} */}
             <br />
             {item.hoseVbung !== 0 ? `Bundumfang:${item.hoseVbung}` : ""}
@@ -1092,13 +1104,17 @@ function Cart() {
             {item.hemdVco !== 0 ? `Halsumfang:${item.hemdVco}` : ""}
             {item.hemdVnach !== 0 ? `, Armloch:${item.hemdVnach}` : ""}
             {item.hemdVnguc !== 0 ? `, Brustumfang:${item.hemdVnguc}` : ""}
+            <br />
+            <br />
           </li>
         ))}
       </ul>
-      <br />
-      {/* <button onClick={() => navigate(-1)}>Zurück</button> */}
-      <button onClick={() => navigate("/shop/products")}>Zum Katalog</button>
-      <button onClick={() => navigate("/shop/checkout")}>Checkout</button>
+      {/* <br /> */}
+      <button onClick={() => navigate(-1)}>Zurück</button>
+      {/* <button onClick={() => navigate("/shop/products")}>Zum Katalog</button> */}
+      <button onClick={() => navigate("/shop/checkout")}>
+        <b>Bestellen</b>
+      </button>
     </main>
   );
 }
@@ -1122,16 +1138,16 @@ function Header() {
         <div className="">
           <ul className="navC">
             <li>
-              <Link to="/shop/products">|Products</Link>
+              <Link to="/shop/products">|Produkte</Link>
             </li>
             <li>
-              <Link to="/shop/cart">|Cart</Link>
+              <Link to="/shop/cart">|Warenkorb</Link>
             </li>
             {/* <li>
-              <Link to="/shop/checkout">Checkout</Link>
+              <Link to="/service">|Service Infos</Link>
             </li> */}
             <li>
-              <Link to="/contact">|Contact</Link>
+              <Link to="/contact">|Kontakt</Link>
             </li>
             {/* <li>
               <Link to="/form">Form</Link>
@@ -1165,7 +1181,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
-
+          <Route path="service" element={<ServiceInfo />} />
           {/* <Route path="cart" element={<Cart />} /> */}
           {/* <Route path="shop" element={<Shop />}> */}
           <Route path="shop/products" element={<Catalog />}>
@@ -1189,6 +1205,14 @@ function App() {
   );
 }
 
+function ServiceInfo() {
+  return (
+    <main>
+      <h4>Service Infos</h4>
+    </main>
+  );
+}
+
 function Contact() {
   // const [searchParams] = useSearchParams();
   // const [searchParams, setSearchParams] = useSearchParams();
@@ -1196,7 +1220,7 @@ function Contact() {
     <main>
       <h4>
         {/* Contact <i>{searchParams.get("option")}</i> */}
-        Contact
+        Kontakt
       </h4>
     </main>
   );
@@ -1232,10 +1256,6 @@ function Checkout() {
   //   setProduct(prod);
   //   // return true;
   // };
-
-  // const postData = async (prod, fdata) => {};
-
-  // private String customerAddress;
 
   const postData = async (fdata) => {
     const cartUuid = getCartUuid();
@@ -1285,18 +1305,21 @@ function Checkout() {
     <>
       <main className="">
         {/* Contact <i>{searchParams.get("option")}</i> */}
-        <b>Checkout</b>
-        <p>{`ID:${getCartUuid()}`}</p>
+        <p>
+          <b>Kundeninformationen</b>
+        </p>
+        {/* <p>{`ID:${getCartUuid()}`}</p> */}
+        <br />
         {/* <button onClick={() => navigate("/shop/products")}>Zum Katalog</button> */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={fieldStyle}>
-            <label htmlFor="fname">Your first name</label>
+            <label htmlFor="fname">Ihr Vorname</label>
             <br />
             <input
               type="text"
               id="fname"
               {...register("fname", {
-                required: " fname is required",
+                required: " Vorname ist erforderlich",
               })}
               // className={getEditorStyle(errors.name)}
             />
@@ -1305,13 +1328,13 @@ function Checkout() {
             )}
           </div>
           <div className={fieldStyle}>
-            <label htmlFor="lname">Your last name</label>
+            <label htmlFor="lname">Ihr Name</label>
             <br />
             <input
               type="text"
               id="lname"
               {...register("lname", {
-                required: " lname is required",
+                required: " Name ist erforderlich",
               })}
               // className={getEditorStyle(errors.name)}
             />
@@ -1320,13 +1343,13 @@ function Checkout() {
             )}
           </div>
           <div className={fieldStyle}>
-            <label htmlFor="email">Your email</label>
+            <label htmlFor="email">Email</label>
             <br />
             <input
               type="email"
               id="email"
               {...register("email", {
-                required: " Email is required",
+                required: " Email ist erforderlich",
                 pattern: {
                   value: /\S+@\S+\.\S+/,
                   message: "Entered value does not match email format",
@@ -1339,13 +1362,13 @@ function Checkout() {
             )}
           </div>
           <div className={fieldStyle}>
-            <label htmlFor="fonnumber">Your Fonnumber</label>
+            <label htmlFor="fonnumber">Tel-Nummer</label>
             <br />
             <input
               type="text"
               id="fonnumber"
               {...register("fonnumber", {
-                required: " Fonnumber is required",
+                required: " Tel-Nummer ist erforderlich",
               })}
               // className={getEditorStyle(errors.name)}
             />
@@ -1354,13 +1377,13 @@ function Checkout() {
             )}
           </div>
           <div className={fieldStyle}>
-            <label htmlFor="address">Your Address</label>
+            <label htmlFor="address">Adresse</label>
             <br />
             <input
               type="text"
               id="address"
               {...register("address", {
-                required: " Address is required",
+                required: " Adresse ist erforderlich",
               })}
               // className={getEditorStyle(errors.address)}
             />
@@ -1369,8 +1392,9 @@ function Checkout() {
             )}
           </div>
           <div>
+            <br />
             <button type="submit" className="">
-              Make Order
+              <b>Bestellung bestätigen</b>
             </button>
           </div>
         </form>
