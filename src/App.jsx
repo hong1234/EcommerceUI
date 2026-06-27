@@ -398,11 +398,6 @@ function Detail({ prodId, setProdId }) {
       <h3>
         {product.title} - {product.price}€
       </h3>
-      {/* {product.descript} */}
-      {/* <br />
-      {product.price}€ */}
-      {/* <br /> */}
-      {/* <br /> */}
       <div>
         {/* <MyGallery imgs={getImages("quan-jean.jpg;quan-pijama.jpg")} /> */}
         <MyGallery imgs={getImages(product.imagename)} />
@@ -412,24 +407,12 @@ function Detail({ prodId, setProdId }) {
         {/* <MyGallery /> */}
         {product.descript}
       </p>
-      {/* <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br /> */}
-      {/* <br /> */}
       {/* <p>
         <b>Ihre individuellen Maße</b> in der Maßeinheit Zentimeter(cm)
       </p> */}
       <b>Ihre individuellen Maße</b>
       <br />
       in der Maßeinheit Zentimeter
-      {/* <b></b> */}
-      {/* <p>  
-      </p> */}
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={fieldStyle}>
@@ -814,11 +797,11 @@ function Detail({ prodId, setProdId }) {
             <textarea id="notes" {...register("notes")} />
           </div>
 
-          <div className="">
+          <p>
             <button type="submit">
               <b>IN DEN WARENKORB LEGEN</b>
             </button>
-          </div>
+          </p>
         </form>
       </div>
     </>
@@ -892,7 +875,7 @@ function Order() {
         {/* <br /> */}
         Bestellung-Nr:
         <br />
-        {order.cartUuid}
+        <b>{order.cartUuid}</b>
         <br />
         <br />
         Gesamtbetrag inkl. MwSt:
@@ -1279,16 +1262,16 @@ function Cart() {
   );
 }
 
-function Catalog() {
-  return (
-    <>
-      {/* <Menu /> */}
-      <Outlet />
-      {/* <main>
-      </main> */}
-    </>
-  );
-}
+// function Catalog() {
+//   return (
+//     <>
+//       {/* <Menu /> */}
+//       <Outlet />
+//       {/* <main>
+//       </main> */}
+//     </>
+//   );
+// }
 
 function Header() {
   return (
@@ -1344,12 +1327,18 @@ function App() {
           <Route path="service" element={<ServiceInfo />} />
           {/* <Route path="cart" element={<Cart />} /> */}
           {/* <Route path="shop" element={<Shop />}> */}
-          <Route path="shop/products" element={<Catalog />}>
+          {/* <Route path="shop/products" element={<Catalog />}>
             <Route index element={<Best />} />
             <Route path=":category/:page" element={<SelectList />} />
             <Route path="search" element={<SearchList />} />
-            {/* <Route path=":prodId" element={<Product />} /> */}
-          </Route>
+          </Route> */}
+          <Route path="shop/products" element={<Best />} />
+          <Route
+            path="shop/products/:category/:page"
+            element={<SelectList />}
+          />
+          <Route path="shop/products/search" element={<SearchList />} />
+          {/* <Route path="path="shop/products/:prodId" element={<Product />} /> */}
           <Route path="shop/cart" element={<Cart />} />
           <Route path="shop/checkout" element={<Checkout />} />
           <Route path="shop/order/:cartUuid" element={<Order />} />
@@ -1481,7 +1470,6 @@ function Checkout() {
               {...register("fname", {
                 required: " Vorname ist erforderlich",
               })}
-              // className={getEditorStyle(errors.name)}
             />
             {errors.fname && (
               <span className="error-message">{errors.fname.message}</span>
@@ -1496,7 +1484,6 @@ function Checkout() {
               {...register("lname", {
                 required: " Name ist erforderlich",
               })}
-              // className={getEditorStyle(errors.name)}
             />
             {errors.lname && (
               <span className="error-message">{errors.lname.message}</span>
@@ -1515,7 +1502,6 @@ function Checkout() {
                   message: "Entered value does not match email format",
                 },
               })}
-              // className={getEditorStyle(errors.email)}
             />
             {errors.email && (
               <span className="error-message">{errors.email.message}</span>
@@ -1530,7 +1516,6 @@ function Checkout() {
               {...register("fonnumber", {
                 required: " Tel-Nummer ist erforderlich",
               })}
-              // className={getEditorStyle(errors.name)}
             />
             {errors.fonnumber && (
               <span className="error-message">{errors.fonnumber.message}</span>
@@ -1545,19 +1530,16 @@ function Checkout() {
               {...register("address", {
                 required: " Adresse ist erforderlich",
               })}
-              // className={getEditorStyle(errors.address)}
             />
             {errors.address && (
               <span className="error-message">{errors.address.message}</span>
             )}
           </div>
-          <div>
-            {/* <br /> */}
+          <p>
             <button type="submit" className="">
-              {/* <b>Bestellung bestätigen</b> */}
               <b>BESTELLUNG BESTÄTIGEN</b>
             </button>
-          </div>
+          </p>
         </form>
       </main>
     </>
