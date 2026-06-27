@@ -426,7 +426,7 @@ function Detail({ prodId, setProdId }) {
       </p> */}
       <b>Ihre individuellen Maße</b>
       <br />
-      in der Maßeinheit Zentimeter(cm)
+      in der Maßeinheit Zentimeter
       {/* <b></b> */}
       {/* <p>  
       </p> */}
@@ -461,7 +461,7 @@ function Detail({ prodId, setProdId }) {
           {product.masstype == "hose" ? (
             <div>
               <div className={fieldStyle}>
-                <label htmlFor="hoseVbung">Bundumfang/bung</label>
+                <label htmlFor="hoseVbung">Bundumfang/vongBung</label>
                 <br />
                 <input
                   type="number"
@@ -486,7 +486,7 @@ function Detail({ prodId, setProdId }) {
               </div>
 
               <div className={fieldStyle}>
-                <label htmlFor="hoseVmong">Hüftumfang/mong</label>
+                <label htmlFor="hoseVmong">Hüftumfang/vongMong</label>
                 <br />
                 <input
                   type="number"
@@ -511,7 +511,7 @@ function Detail({ prodId, setProdId }) {
               </div>
 
               <div className={fieldStyle}>
-                <label htmlFor="hoseVdui">Oberschenkelumfang/dui</label>
+                <label htmlFor="hoseVdui">Oberschenkelumfang/vongDui</label>
                 <br />
                 <input
                   type="number"
@@ -538,7 +538,7 @@ function Detail({ prodId, setProdId }) {
               </div>
 
               <div className={fieldStyle}>
-                <label htmlFor="hoseDdui">Beinlänge/dChan</label>
+                <label htmlFor="hoseDdui">Beinlänge/daiChan</label>
                 <br />
                 <input
                   type="number"
@@ -563,7 +563,7 @@ function Detail({ prodId, setProdId }) {
               </div>
 
               <div className={fieldStyle}>
-                <label htmlFor="hoseDcang">Schrittlänge/dHang</label>
+                <label htmlFor="hoseDcang">Schrittlänge/daiHang</label>
                 <br />
                 <input
                   type="number"
@@ -590,7 +590,7 @@ function Detail({ prodId, setProdId }) {
           ) : (
             <div>
               <div className={fieldStyle}>
-                <label htmlFor="hemdVco">Halsumfang/co</label>
+                <label htmlFor="hemdVco">Halsumfang/vongCo</label>
                 <br />
                 <input
                   type="number"
@@ -614,7 +614,7 @@ function Detail({ prodId, setProdId }) {
                 )}
               </div>
               <div className={fieldStyle}>
-                <label htmlFor="hemdDvai">Schulterbreite/dVai</label>
+                <label htmlFor="hemdDvai">Schulterbreite/daiVai</label>
                 <br />
                 <input
                   type="number"
@@ -639,7 +639,7 @@ function Detail({ prodId, setProdId }) {
                 )}
               </div>
               <div className={fieldStyle}>
-                <label htmlFor="hemdVnach">Armloch/nach</label>
+                <label htmlFor="hemdVnach">Armloch/vongNach</label>
                 <br />
                 <input
                   type="number"
@@ -663,7 +663,7 @@ function Detail({ prodId, setProdId }) {
                 )}
               </div>
               <div className={fieldStyle}>
-                <label htmlFor="hemdVnguc">Brustumfang/nguc</label>
+                <label htmlFor="hemdVnguc">Brustumfang/vongNguc</label>
                 <br />
                 <input
                   type="number"
@@ -687,7 +687,7 @@ function Detail({ prodId, setProdId }) {
                 )}
               </div>
               <div className={fieldStyle}>
-                <label htmlFor="hemdVeo">Taillenumfang/eo</label>
+                <label htmlFor="hemdVeo">Taillenumfang/vongEo</label>
                 <br />
                 <input
                   type="number"
@@ -711,7 +711,7 @@ function Detail({ prodId, setProdId }) {
                 )}
               </div>
               <div className={fieldStyle}>
-                <label htmlFor="hemdVcotay">Handgelenk/cotay</label>
+                <label htmlFor="hemdVcotay">Handgelenk/vongCotay</label>
                 <br />
                 <input
                   type="number"
@@ -735,7 +735,7 @@ function Detail({ prodId, setProdId }) {
                 )}
               </div>
               <div className={fieldStyle}>
-                <label htmlFor="hemdDtay">Armlänge/dTay</label>
+                <label htmlFor="hemdDtay">Armlänge/daiTay</label>
                 <br />
                 <input
                   type="number"
@@ -759,7 +759,7 @@ function Detail({ prodId, setProdId }) {
                 )}
               </div>
               <div className={fieldStyle}>
-                <label htmlFor="hemdDao">Hemdlänge/dAo</label>
+                <label htmlFor="hemdDao">Hemdlänge/daiAo</label>
                 <br />
                 <input
                   type="number"
@@ -924,7 +924,7 @@ function Order() {
               {item.hemdVnach !== 0 ? `, Armloch:${item.hemdVnach}` : ""}
               {item.hemdVnguc !== 0 ? `, Brustumfang:${item.hemdVnguc}` : ""}
               <br />
-              <br />
+              {/* <br /> */}
             </li>
           ))}
         </ul>
@@ -1021,7 +1021,7 @@ function SelectList() {
         {/* <br /> */}
         {products.map((item) => (
           <p key={item.id}>
-            <FaStar color="red" /> <b>{item.title}</b>{" "}
+            <FaStar color="red" /> {item.title}{" "}
             <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
           </p>
           // {item.descript}
@@ -1112,7 +1112,7 @@ function Best() {
         </ul> */}
         {products.map((item) => (
           <p key={item.id}>
-            <FaStar color="red" /> <b>{item.title}</b>{" "}
+            <FaStar color="red" /> {item.title}{" "}
             <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
           </p>
           // {item.descript}
@@ -1187,7 +1187,7 @@ function SearchList() {
         </p> */}
         {products.map((item) => (
           <p key={item.id}>
-            <FaStar color="red" /> <b>{item.title}</b>{" "}
+            <FaStar color="red" /> {item.title}{" "}
             <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
           </p>
           // {item.descript}
@@ -1264,7 +1264,7 @@ function Cart() {
             {item.hemdVnach !== 0 ? `, Armloch:${item.hemdVnach}` : ""}
             {item.hemdVnguc !== 0 ? `, Brustumfang:${item.hemdVnguc}` : ""}
             <br />
-            <br />
+            {/* <br /> */}
           </li>
         ))}
       </ul>
@@ -1295,11 +1295,10 @@ function Header() {
     <>
       <header>
         <h1>MassAnzug Service</h1>
-        <p>
-          <Link to="/shop/products">|Produkte</Link>
-          <Link to="/shop/cart">|Warenkorb</Link>
-          <Link to="/contact">|Kontakt</Link>
-        </p>
+        {/* <p></p> */}
+        <Link to="/shop/products">|Produkte</Link>
+        <Link to="/shop/cart">|Warenkorb</Link>
+        <Link to="/contact">|Kontakt</Link>
         <Menu />
         {/* <div className="">
           <ul className="">
@@ -1553,7 +1552,7 @@ function Checkout() {
             )}
           </div>
           <div>
-            <br />
+            {/* <br /> */}
             <button type="submit" className="">
               {/* <b>Bestellung bestätigen</b> */}
               <b>BESTELLUNG BESTÄTIGEN</b>
