@@ -22,11 +22,10 @@ import { toast } from "react-hot-toast";
 import { FaStar } from "react-icons/fa";
 import { BsArrowRightSquare } from "react-icons/bs";
 
-import "./bakery-rwd.css";
 // import "./App.css";
 // import "./app2.css";
 // import "./app3.css";
-// import "./app4.css";
+import "./app4.css";
 // import "./Form2.css";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
@@ -37,95 +36,6 @@ import { AppContext } from "./AppContext";
 // import EventRegistrationForm from "./EventRegistrationForm";
 // import Form3 from "./Form3";
 import Form4 from "./Form4";
-
-// import { useRef } from "react";
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/image-gallery.css";
-
-// const images: GalleryItem[] = [
-// const images = [
-//   {
-//     original: "https://picsum.photos/id/1018/1000/600/",
-//     thumbnail: "https://picsum.photos/id/1018/250/150/",
-//   },
-//   {
-//     original: "https://picsum.photos/id/1015/1000/600/",
-//     thumbnail: "https://picsum.photos/id/1015/250/150/",
-//   },
-//   {
-//     original: "https://picsum.photos/id/1019/1000/600/",
-//     thumbnail: "https://picsum.photos/id/1019/250/150/",
-//   },
-// ];
-
-// import image1 from "/images/quan-jean.jpg";
-// import image1thum from "/images/thumbs/quan-jean-thumb.jpg";
-// import image2 from "/images/quan-pijama.jpg";
-// import image2thum from "/images/thumbs/quan-pijama-thumb.jpg";
-
-// const images = [
-//   {
-//     original: "/images/quan-jean.jpg",
-//     thumbnail: "/images/thumbs/quan-jean-thumb.jpg",
-//   },
-//   {
-//     original: "/images/quan-pijama.jpg",
-//     thumbnail: "/images/thumbs/quan-pijama-thumb.jpg",
-//   },
-// ];
-
-// function MyGallery() {
-//   const galleryRef = useRef < ImageGalleryRef > null;
-
-//   return (
-//     <ImageGallery
-//       ref={galleryRef}
-//       items={images}
-//       onSlide={(index) => console.log("Slid to", index)}
-//     />
-//   );
-// }
-
-// ["quan-jean.jpg", "quan-pijama.jpg"]
-
-function getImages(text) {
-  const myArray = text.split(";");
-  return myArray;
-  // return ["quan-jean.jpg", "quan-pijama.jpg"];
-}
-
-function MyGallery({ imgs }) {
-  const images = [
-    // {
-    //   original: "/images/quan-jean.jpg",
-    //   thumbnail: "/images/thumbs/quan-jean-thumb.jpg",
-    // },
-    // {
-    //   original: "/images/quan-pijama.jpg",
-    //   thumbnail: "/images/thumbs/quan-pijama-thumb.jpg",
-    // },
-    {
-      original: "/images/" + imgs[0],
-      thumbnail: "/images/thumbs/" + imgs[0],
-    },
-    {
-      original: "/images/" + imgs[1],
-      thumbnail: "/images/thumbs/" + imgs[1],
-    },
-  ];
-  return (
-    <div className="app">
-      {/* <header>
-        <div className="header-wrapper">
-          <h1>React image gallery demo</h1>
-        </div>
-      </header> */}
-      <div className="image-gallery-wrapper">
-        <ImageGallery items={images} />
-      </div>
-    </div>
-  );
-}
 
 function getCartUuid() {
   let cartid = sessionStorage.getItem("cartUuid");
@@ -378,8 +288,6 @@ function Detail({ prodId, setProdId }) {
     toast.success(`${fdata.pieces} ${product.title} is added to cart!`);
   };
 
-  // const imgs = ["quan-jean.jpg", "quan-pijama.jpg"];
-
   // function getEditorStyle(fieldError) {
   //   return fieldError ? "border-red-500" : "";
   // }
@@ -395,432 +303,398 @@ function Detail({ prodId, setProdId }) {
   return (
     <>
       {/* <Cart /> */}
-      <h3>
-        {product.title} - {product.price}€
-      </h3>
-      {/* {product.descript} */}
+      <p className="">
+        <b>
+          {product.title} - {product.price}€
+        </b>
+      </p>
+      {product.descript}
       {/* <br />
       {product.price}€ */}
-      {/* <br /> */}
-      {/* <br /> */}
-      <div>
-        {/* <MyGallery imgs={getImages("quan-jean.jpg;quan-pijama.jpg")} /> */}
-        <MyGallery imgs={getImages(product.imagename)} />
-      </div>
+      <br />
+      <br />
+      <img className="" src={`/images/${product.imagename}`} alt="photo" />
+      <br />
+      <br />
       <p>
-        {/* <img className="" src={`/images/${product.imagename}`} alt="photo" /> */}
-        {/* <MyGallery /> */}
-        {product.descript}
+        <b>Ihre individuellen Masse</b>
       </p>
-      {/* <br />
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br /> */}
-      {/* <br /> */}
-      {/* <p>
-        <b>Ihre individuellen Maße</b> in der Maßeinheit Zentimeter(cm)
-      </p> */}
-      <b>Ihre individuellen Maße</b>
-      <br />
-      in der Maßeinheit Zentimeter(cm)
-      {/* <b></b> */}
-      {/* <p>  
-      </p> */}
-      <div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className={fieldStyle}>
-            <label htmlFor="color">Farbe</label>
-            <br />
-            <select
-              id="color"
-              {...register("color", {
-                required: " Farbe ist erforderlich",
-              })}
-            >
-              <option value=""></option>
-              <option value="Red" style={{ backgroundColor: "#e31616" }}>
-                Red
-              </option>
-              <option value="Green" style={{ backgroundColor: "#56c82d" }}>
-                Green
-              </option>
-              <option value="Black" style={{ backgroundColor: "#000000" }}>
-                Black
-              </option>
-              <option value="Other">Other</option>
-            </select>
-            {errors.color && (
-              <span className="error-message">{errors.color.message}</span>
-            )}
-          </div>
-
-          {product.masstype == "hose" ? (
-            <div>
-              <div className={fieldStyle}>
-                <label htmlFor="hoseVbung">Bundumfang/bung</label>
-                <br />
-                <input
-                  type="number"
-                  id="hoseVbung"
-                  {...register("hoseVbung", {
-                    required: " Bundumfang 80-140 ist erforderlich",
-                    min: {
-                      value: 80,
-                      message: "Bundumfang muss mindestens 80 cm betragen",
-                    },
-                    max: {
-                      value: 140,
-                      message: "Bundumfang muss weniger als 140 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hoseVbung && (
-                  <span className="error-message">
-                    {errors.hoseVbung.message}
-                  </span>
-                )}
-              </div>
-
-              <div className={fieldStyle}>
-                <label htmlFor="hoseVmong">Hüftumfang/mong</label>
-                <br />
-                <input
-                  type="number"
-                  id="hoseVmong"
-                  {...register("hoseVmong", {
-                    required: " Hüftumfang 60-120 ist erforderlich",
-                    min: {
-                      value: 60,
-                      message: "Hüftumfang muss mindestens 60 cm betragen",
-                    },
-                    max: {
-                      value: 120,
-                      message: "Hüftumfang muss weniger als 120 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hoseVmong && (
-                  <span className="error-message">
-                    {errors.hoseVmong.message}
-                  </span>
-                )}
-              </div>
-
-              <div className={fieldStyle}>
-                <label htmlFor="hoseVdui">Oberschenkelumfang/dui</label>
-                <br />
-                <input
-                  type="number"
-                  id="hoseVdui"
-                  {...register("hoseVdui", {
-                    required: " Oberschenkelumfang 40-80 ist erforderlich",
-                    min: {
-                      value: 40,
-                      message:
-                        "Oberschenkelumfang muss mindestens 40 cm betragen",
-                    },
-                    max: {
-                      value: 80,
-                      message:
-                        "Oberschenkelumfang muss weniger als 80 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hoseVdui && (
-                  <span className="error-message">
-                    {errors.hoseVdui.message}
-                  </span>
-                )}
-              </div>
-
-              <div className={fieldStyle}>
-                <label htmlFor="hoseDdui">Beinlänge/dChan</label>
-                <br />
-                <input
-                  type="number"
-                  id="hoseDdui"
-                  {...register("hoseDdui", {
-                    required: " Beinlänge 60-120 ist erforderlich",
-                    min: {
-                      value: 60,
-                      message: "Beinlänge muss mindestens 60 cm betragen",
-                    },
-                    max: {
-                      value: 120,
-                      message: "Beinlänge muss weniger als 120 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hoseDdui && (
-                  <span className="error-message">
-                    {errors.hoseDdui.message}
-                  </span>
-                )}
-              </div>
-
-              <div className={fieldStyle}>
-                <label htmlFor="hoseDcang">Schrittlänge/dHang</label>
-                <br />
-                <input
-                  type="number"
-                  id="hoseDcang"
-                  {...register("hoseDcang", {
-                    required: " Schrittlänge 60-100 ist erforderlich",
-                    min: {
-                      value: 60,
-                      message: "Schrittlänge muss mindestens 60 cm betragen",
-                    },
-                    max: {
-                      value: 100,
-                      message: "Schrittlänge muss weniger als 100 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hoseDcang && (
-                  <span className="error-message">
-                    {errors.hoseDcang.message}
-                  </span>
-                )}
-              </div>
-            </div>
-          ) : (
-            <div>
-              <div className={fieldStyle}>
-                <label htmlFor="hemdVco">Halsumfang/co</label>
-                <br />
-                <input
-                  type="number"
-                  id="hemdVco"
-                  {...register("hemdVco", {
-                    required: " Halsumfang 30-60 ist erforderlich",
-                    min: {
-                      value: 30,
-                      message: "Halsumfang muss mindestens 30 cm betragen",
-                    },
-                    max: {
-                      value: 60,
-                      message: "Halsumfang muss weniger als 60 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hemdVco && (
-                  <span className="error-message">
-                    {errors.hemdVco.message}
-                  </span>
-                )}
-              </div>
-              <div className={fieldStyle}>
-                <label htmlFor="hemdDvai">Schulterbreite/dVai</label>
-                <br />
-                <input
-                  type="number"
-                  id="hemdDvai"
-                  {...register("hemdDvai", {
-                    required: " Schulterbreite 60-120 ist erforderlich",
-                    min: {
-                      value: 60,
-                      message: "Schulterbreite muss mindestens 60 cm betragen",
-                    },
-                    max: {
-                      value: 120,
-                      message:
-                        "Schulterbreite muss weniger als 120 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hemdDvai && (
-                  <span className="error-message">
-                    {errors.hemdDvai.message}
-                  </span>
-                )}
-              </div>
-              <div className={fieldStyle}>
-                <label htmlFor="hemdVnach">Armloch/nach</label>
-                <br />
-                <input
-                  type="number"
-                  id="hemdVnach"
-                  {...register("hemdVnach", {
-                    required: " Armloch 30-60 ist erforderlich",
-                    min: {
-                      value: 30,
-                      message: "Armloch muss mindestens 30 cm betragen",
-                    },
-                    max: {
-                      value: 60,
-                      message: "Armloch muss weniger als 60 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hemdVnach && (
-                  <span className="error-message">
-                    {errors.hemdVnach.message}
-                  </span>
-                )}
-              </div>
-              <div className={fieldStyle}>
-                <label htmlFor="hemdVnguc">Brustumfang/nguc</label>
-                <br />
-                <input
-                  type="number"
-                  id="hemdVnguc"
-                  {...register("hemdVnguc", {
-                    required: " Brustumfang 80-120 ist erforderlich",
-                    min: {
-                      value: 80,
-                      message: "Brustumfang muss mindestens 80 cm betragen",
-                    },
-                    max: {
-                      value: 120,
-                      message: "Brustumfang muss weniger als 120 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hemdVnguc && (
-                  <span className="error-message">
-                    {errors.hemdVnguc.message}
-                  </span>
-                )}
-              </div>
-              <div className={fieldStyle}>
-                <label htmlFor="hemdVeo">Taillenumfang/eo</label>
-                <br />
-                <input
-                  type="number"
-                  id="hemdVeo"
-                  {...register("hemdVeo", {
-                    required: " Taillenumfang 60-100 ist erforderlich",
-                    min: {
-                      value: 60,
-                      message: "Taillenumfang muss mindestens 60 cm betragen",
-                    },
-                    max: {
-                      value: 100,
-                      message: "Taillenumfang muss weniger als 100 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hemdVeo && (
-                  <span className="error-message">
-                    {errors.hemdVeo.message}
-                  </span>
-                )}
-              </div>
-              <div className={fieldStyle}>
-                <label htmlFor="hemdVcotay">Handgelenk/cotay</label>
-                <br />
-                <input
-                  type="number"
-                  id="hemdVcotay"
-                  {...register("hemdVcotay", {
-                    required: " Handgelenk 10-30 ist erforderlich",
-                    min: {
-                      value: 10,
-                      message: "Handgelenk muss mindestens 10 cm betragen",
-                    },
-                    max: {
-                      value: 30,
-                      message: "Handgelenk muss weniger als 30 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hemdVcotay && (
-                  <span className="error-message">
-                    {errors.hemdVcotay.message}
-                  </span>
-                )}
-              </div>
-              <div className={fieldStyle}>
-                <label htmlFor="hemdDtay">Armlänge/dTay</label>
-                <br />
-                <input
-                  type="number"
-                  id="hemdDtay"
-                  {...register("hemdDtay", {
-                    required: " Armlänge 60-120 ist erforderlich",
-                    min: {
-                      value: 60,
-                      message: "Armlänge muss mindestens 60 cm betragen",
-                    },
-                    max: {
-                      value: 120,
-                      message: "Armlänge muss weniger als 120 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hemdDtay && (
-                  <span className="error-message">
-                    {errors.hemdDtay.message}
-                  </span>
-                )}
-              </div>
-              <div className={fieldStyle}>
-                <label htmlFor="hemdDao">Hemdlänge/dAo</label>
-                <br />
-                <input
-                  type="number"
-                  id="hemdDao"
-                  {...register("hemdDao", {
-                    required: " Hemdlänge 60-120 ist erforderlich ",
-                    min: {
-                      value: 60,
-                      message: "Hemdlänge muss mindestens 60 cm betragen",
-                    },
-                    max: {
-                      value: 120,
-                      message: "Hemdlänge muss weniger als 120 cm betragen",
-                    },
-                  })}
-                />
-                {errors.hemdDao && (
-                  <span className="error-message">
-                    {errors.hemdDao.message}
-                  </span>
-                )}
-              </div>
-            </div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={fieldStyle}>
+          <label htmlFor="color">Farbe</label>
+          <br />
+          <select
+            id="color"
+            {...register("color", {
+              required: " Farbe ist erforderlich",
+            })}
+          >
+            <option value=""></option>
+            <option value="Red" style={{ backgroundColor: "#e31616" }}>
+              Red
+            </option>
+            <option value="Green" style={{ backgroundColor: "#56c82d" }}>
+              Green
+            </option>
+            <option value="Black" style={{ backgroundColor: "#000000" }}>
+              Black
+            </option>
+            <option value="Other">Other</option>
+          </select>
+          {errors.color && (
+            <span className="error-message">{errors.color.message}</span>
           )}
+        </div>
 
-          <div className={fieldStyle}>
-            <label htmlFor="pieces">Anzahl der Artikel</label>
-            <br />
-            <input
-              type="number"
-              id="pieces"
-              {...register("pieces", {
-                required: " Anzahl ist erforderlich",
-                min: {
-                  value: 1,
-                  message: "Anzahl muss mindestens 1 betragen",
-                },
-                max: {
-                  value: 100,
-                  message: "Anzahl muss kleiner als 100 sein",
-                },
-              })}
-            />
-            {errors.pieces && (
-              <span className="error-message">{errors.pieces.message}</span>
-            )}
-          </div>
+        {product.masstype == "hose" ? (
+          <div>
+            <div className={fieldStyle}>
+              <label htmlFor="hoseVbung">Bundumfang/bung in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hoseVbung"
+                {...register("hoseVbung", {
+                  required: " Bundumfang 80-140 ist erforderlich",
+                  min: {
+                    value: 80,
+                    message: "Bundumfang muss mindestens 80 cm betragen",
+                  },
+                  max: {
+                    value: 140,
+                    message: "Bundumfang muss weniger als 140 cm betragen",
+                  },
+                })}
+              />
+              {errors.hoseVbung && (
+                <span className="error-message">
+                  {errors.hoseVbung.message}
+                </span>
+              )}
+            </div>
 
-          <div className={fieldStyle}>
-            <label htmlFor="notes">Zusätzliche Hinweise</label>
-            <br />
-            <textarea id="notes" {...register("notes")} />
-          </div>
+            <div className={fieldStyle}>
+              <label htmlFor="hoseVmong">Hüftumfang/mong in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hoseVmong"
+                {...register("hoseVmong", {
+                  required: " Hüftumfang 60-120 ist erforderlich",
+                  min: {
+                    value: 60,
+                    message: "Hüftumfang muss mindestens 60 cm betragen",
+                  },
+                  max: {
+                    value: 120,
+                    message: "Hüftumfang muss weniger als 120 cm betragen",
+                  },
+                })}
+              />
+              {errors.hoseVmong && (
+                <span className="error-message">
+                  {errors.hoseVmong.message}
+                </span>
+              )}
+            </div>
 
-          <div className="">
-            <button type="submit">
-              <b>IN DEN WARENKORB LEGEN</b>
-            </button>
+            <div className={fieldStyle}>
+              <label htmlFor="hoseVdui">Oberschenkelumfang/dui in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hoseVdui"
+                {...register("hoseVdui", {
+                  required: " Oberschenkelumfang 40-80 ist erforderlich",
+                  min: {
+                    value: 40,
+                    message:
+                      "Oberschenkelumfang muss mindestens 40 cm betragen",
+                  },
+                  max: {
+                    value: 80,
+                    message:
+                      "Oberschenkelumfang muss weniger als 80 cm betragen",
+                  },
+                })}
+              />
+              {errors.hoseVdui && (
+                <span className="error-message">{errors.hoseVdui.message}</span>
+              )}
+            </div>
+
+            <div className={fieldStyle}>
+              <label htmlFor="hoseDdui">Beinlänge/dChan in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hoseDdui"
+                {...register("hoseDdui", {
+                  required: " Beinlänge 60-120 ist erforderlich",
+                  min: {
+                    value: 60,
+                    message: "Beinlänge muss mindestens 60 cm betragen",
+                  },
+                  max: {
+                    value: 120,
+                    message: "Beinlänge muss weniger als 120 cm betragen",
+                  },
+                })}
+              />
+              {errors.hoseDdui && (
+                <span className="error-message">{errors.hoseDdui.message}</span>
+              )}
+            </div>
+
+            <div className={fieldStyle}>
+              <label htmlFor="hoseDcang">Schrittlänge/dHang in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hoseDcang"
+                {...register("hoseDcang", {
+                  required: " Schrittlänge 60-100 ist erforderlich",
+                  min: {
+                    value: 60,
+                    message: "Schrittlänge muss mindestens 60 cm betragen",
+                  },
+                  max: {
+                    value: 100,
+                    message: "Schrittlänge muss weniger als 100 cm betragen",
+                  },
+                })}
+              />
+              {errors.hoseDcang && (
+                <span className="error-message">
+                  {errors.hoseDcang.message}
+                </span>
+              )}
+            </div>
           </div>
-        </form>
-      </div>
+        ) : (
+          <div>
+            <div className={fieldStyle}>
+              <label htmlFor="hemdVco">Halsumfang/co in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hemdVco"
+                {...register("hemdVco", {
+                  required: " Halsumfang 30-60 ist erforderlich",
+                  min: {
+                    value: 30,
+                    message: "Halsumfang muss mindestens 30 cm betragen",
+                  },
+                  max: {
+                    value: 60,
+                    message: "Halsumfang muss weniger als 60 cm betragen",
+                  },
+                })}
+              />
+              {errors.hemdVco && (
+                <span className="error-message">{errors.hemdVco.message}</span>
+              )}
+            </div>
+            <div className={fieldStyle}>
+              <label htmlFor="hemdDvai">Schulterbreite/dVai in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hemdDvai"
+                {...register("hemdDvai", {
+                  required: " Schulterbreite 60-120 ist erforderlich",
+                  min: {
+                    value: 60,
+                    message: "Schulterbreite muss mindestens 60 cm betragen",
+                  },
+                  max: {
+                    value: 120,
+                    message: "Schulterbreite muss weniger als 120 cm betragen",
+                  },
+                })}
+              />
+              {errors.hemdDvai && (
+                <span className="error-message">{errors.hemdDvai.message}</span>
+              )}
+            </div>
+            <div className={fieldStyle}>
+              <label htmlFor="hemdVnach">Armloch/nach in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hemdVnach"
+                {...register("hemdVnach", {
+                  required: " Armloch 30-60 ist erforderlich",
+                  min: {
+                    value: 30,
+                    message: "Armloch muss mindestens 30 cm betragen",
+                  },
+                  max: {
+                    value: 60,
+                    message: "Armloch muss weniger als 60 cm betragen",
+                  },
+                })}
+              />
+              {errors.hemdVnach && (
+                <span className="error-message">
+                  {errors.hemdVnach.message}
+                </span>
+              )}
+            </div>
+            <div className={fieldStyle}>
+              <label htmlFor="hemdVnguc">Brustumfang/nguc in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hemdVnguc"
+                {...register("hemdVnguc", {
+                  required: " Brustumfang 80-120 ist erforderlich",
+                  min: {
+                    value: 80,
+                    message: "Brustumfang muss mindestens 80 cm betragen",
+                  },
+                  max: {
+                    value: 120,
+                    message: "Brustumfang muss weniger als 120 cm betragen",
+                  },
+                })}
+              />
+              {errors.hemdVnguc && (
+                <span className="error-message">
+                  {errors.hemdVnguc.message}
+                </span>
+              )}
+            </div>
+            <div className={fieldStyle}>
+              <label htmlFor="hemdVeo">Taillenumfang/eo in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hemdVeo"
+                {...register("hemdVeo", {
+                  required: " Taillenumfang 60-100 ist erforderlich",
+                  min: {
+                    value: 60,
+                    message: "Taillenumfang muss mindestens 60 cm betragen",
+                  },
+                  max: {
+                    value: 100,
+                    message: "Taillenumfang muss weniger als 100 cm betragen",
+                  },
+                })}
+              />
+              {errors.hemdVeo && (
+                <span className="error-message">{errors.hemdVeo.message}</span>
+              )}
+            </div>
+            <div className={fieldStyle}>
+              <label htmlFor="hemdVcotay">Handgelenk/cotay in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hemdVcotay"
+                {...register("hemdVcotay", {
+                  required: " Handgelenk 10-30 ist erforderlich",
+                  min: {
+                    value: 10,
+                    message: "Handgelenk muss mindestens 10 cm betragen",
+                  },
+                  max: {
+                    value: 30,
+                    message: "Handgelenk muss weniger als 30 cm betragen",
+                  },
+                })}
+              />
+              {errors.hemdVcotay && (
+                <span className="error-message">
+                  {errors.hemdVcotay.message}
+                </span>
+              )}
+            </div>
+            <div className={fieldStyle}>
+              <label htmlFor="hemdDtay">Armlänge/dTay in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hemdDtay"
+                {...register("hemdDtay", {
+                  required: " Armlänge 60-120 ist erforderlich",
+                  min: {
+                    value: 60,
+                    message: "Armlänge muss mindestens 60 cm betragen",
+                  },
+                  max: {
+                    value: 120,
+                    message: "Armlänge muss weniger als 120 cm betragen",
+                  },
+                })}
+              />
+              {errors.hemdDtay && (
+                <span className="error-message">{errors.hemdDtay.message}</span>
+              )}
+            </div>
+            <div className={fieldStyle}>
+              <label htmlFor="hemdDao">Hemdlänge/dAo in cm</label>
+              <br />
+              <input
+                type="number"
+                id="hemdDao"
+                {...register("hemdDao", {
+                  required: " Hemdlänge 60-120 ist erforderlich ",
+                  min: {
+                    value: 60,
+                    message: "Hemdlänge muss mindestens 60 cm betragen",
+                  },
+                  max: {
+                    value: 120,
+                    message: "Hemdlänge muss weniger als 120 cm betragen",
+                  },
+                })}
+              />
+              {errors.hemdDao && (
+                <span className="error-message">{errors.hemdDao.message}</span>
+              )}
+            </div>
+          </div>
+        )}
+
+        <div className={fieldStyle}>
+          <label htmlFor="pieces">Anzahl der Artikel</label>
+          <br />
+          <input
+            type="number"
+            id="pieces"
+            {...register("pieces", {
+              required: " Anzahl ist erforderlich",
+              min: {
+                value: 1,
+                message: "Anzahl muss mindestens 1 betragen",
+              },
+              max: {
+                value: 100,
+                message: "Anzahl muss kleiner als 100 sein",
+              },
+            })}
+          />
+          {errors.pieces && (
+            <span className="error-message">{errors.pieces.message}</span>
+          )}
+        </div>
+
+        <div className={fieldStyle}>
+          <label htmlFor="notes">Zusätzliche Hinweise</label>
+          <br />
+          <textarea id="notes" {...register("notes")} />
+        </div>
+
+        <div>
+          <br />
+          <button type="submit" className="">
+            <b>IN DEN WARENKORB LEGEN</b>
+          </button>
+        </div>
+      </form>
     </>
   );
 }
@@ -889,7 +763,7 @@ function Order() {
         <p>
           <b>Vielen Dank für Ihre Bestellung</b>
         </p>
-        {/* <br /> */}
+        <br />
         Bestellung-Nr:
         <br />
         {order.cartUuid}
@@ -900,12 +774,14 @@ function Order() {
         <b>{order.totalPrice} €</b>
         <br />
         <br />
-        Kunde:{" "}
-        <b>
-          {order.customerFname}, {order.customerLname}
-        </b>
+        <p>
+          Kunde:{" "}
+          <b>
+            {order.customerFname}, {order.customerLname}
+          </b>
+        </p>
+        <p>Email: {order.customerEmail}</p>
         <br />
-        Email: {order.customerEmail}
         <p>Artikel</p>
         <ul>
           {order.items.map((item) => (
@@ -980,33 +856,23 @@ function SelectList() {
   if (!products.length) {
     return (
       <>
-        <aside className="">
+        <div className="sidebar-bottom tile">
           <p>Keine Produkte in der Kategorie {`"${category}"`}</p>
-        </aside>
+        </div>
       </>
     );
   }
 
   return (
     <>
-      {/* <main className="">
-        {prodId !== 0 && <Detail prodId={prodId} setProdId={setProdId} />}
-      </main> */}
-      {prodId !== 0 ? (
-        <main>
-          <Detail prodId={prodId} setProdId={setProdId} />
-        </main>
-      ) : (
-        <></>
-      )}
-      <aside className="">
+      <div className="sidebar-bottom tile">
         {/* <Cart />
         <br /> */}
-        {/* <p>
-          <b>Kategorie {`"${category}"`}</b>
-        </p> */}
-        {/* <br /> */}
         <p>
+          <b>Produkte der Kategorie {`"${category}"`}</b>
+        </p>
+        {/* <br /> */}
+        <ul>
           {totalPages.length > 1 ? (
             totalPages.map((pa) => (
               <button key={pa}>
@@ -1016,30 +882,28 @@ function SelectList() {
           ) : (
             <></>
           )}
-        </p>
+        </ul>
+        <br />
         {/* <br /> */}
-        {/* <br /> */}
-        {products.map((item) => (
-          <p key={item.id}>
-            <FaStar color="red" /> <b>{item.title}</b>{" "}
-            <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
-          </p>
-          // {item.descript}
-        ))}
-        {/* <ul>
+        <ul>
           {products.map((item) => (
             <li key={item.id}>
               <p>
+                {/* <FaStar color="red"  onClick={() => eventHandler(item.id)}/>{" "} */}
                 <FaStar color="red" />
-                <b>{item.title}</b>{" "}
+                {/* {item.id}- */} <b>{item.title}</b>{" "}
+                {/* <button onClick={() => eventHandler(item.id)}>Detail</button> */}
                 <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
               </p>
               {item.descript}
             </li>
           ))}
-        </ul> */}
-        {/* <br /> */}
-      </aside>
+        </ul>
+        <br />
+      </div>
+      <div className="main tile">
+        {prodId !== 0 && <Detail prodId={prodId} setProdId={setProdId} />}
+      </div>
     </>
   );
 }
@@ -1070,55 +934,43 @@ function Best() {
   if (!products.length) {
     return (
       <>
-        <aside className="">
+        <div className="sidebar-bottom tile">
           <p>
             <b>There are't Best Products</b>
           </p>
-        </aside>
+        </div>
       </>
     );
   }
 
   return (
     <>
-      {/* <main className="">
-        {prodId !== 0 && <Detail prodId={prodId} setProdId={setProdId} />}
-      </main> */}
-      {prodId !== 0 ? (
-        <main>
-          <Detail prodId={prodId} setProdId={setProdId} />
-        </main>
-      ) : (
-        <></>
-      )}
-      <aside className="">
+      <div className="sidebar-bottom tile">
         {/* <Cart />
         <br /> */}
         <p>
           {/* <b>Best Products</b> */}
           <b>Bestseller</b>
         </p>
-        {/* <br /> */}
-        {/* <ul>
+        <br />
+        <ul>
           {products.map((item) => (
             <li key={item.id}>
               <p>
+                {/* <FaStar color="red"  onClick={() => eventHandler(item.id)}/>{" "} */}
                 <FaStar color="red" /> <b>{item.title}</b>{" "}
+                {/* <button onClick={() => eventHandler(item.id)}>Detail</button> */}
                 <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
               </p>
               {item.descript}
             </li>
           ))}
-        </ul> */}
-        {products.map((item) => (
-          <p key={item.id}>
-            <FaStar color="red" /> <b>{item.title}</b>{" "}
-            <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
-          </p>
-          // {item.descript}
-        ))}
-        {/* <br /> */}
-      </aside>
+        </ul>
+        <br />
+      </div>
+      <div className="main tile">
+        {prodId !== 0 && <Detail prodId={prodId} setProdId={setProdId} />}
+      </div>
     </>
   );
 }
@@ -1159,53 +1011,43 @@ function SearchList() {
   if (!products.length) {
     return (
       <>
-        <aside className="">
+        <div className="sidebar-bottom tile">
           {/* <Cart />
           <br /> */}
           <p>Keine Produkte für Suchwort {`"${keywords}"`}</p>
-        </aside>
+        </div>
       </>
     );
   }
 
   return (
     <>
-      {/* <main className="">
-        {prodId !== 0 && <Detail prodId={prodId} setProdId={setProdId} />}
-      </main> */}
-      {prodId !== 0 ? (
-        <main>
-          <Detail prodId={prodId} setProdId={setProdId} />
-        </main>
-      ) : (
-        <></>
-      )}
-      <aside className="">
-        {/* <Cart /> */}
-        {/* <p>
+      <div className="sidebar-bottom tile">
+        {/* <Cart />
+        <br /> */}
+        <p>
           <b>Produkte für Suchwort {`"${keywords}"`}</b>
-        </p> */}
-        {products.map((item) => (
-          <p key={item.id}>
-            <FaStar color="red" /> <b>{item.title}</b>{" "}
-            <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
-          </p>
-          // {item.descript}
-        ))}
-        {/* <ul>
+        </p>
+        <br />
+        <ul>
           {products.map((item) => (
             <li key={item.id}>
               <p>
+                {/* <FaStar color="red"  onClick={() => eventHandler(item.id)}/>{" "} */}
                 <FaStar color="red" />
-                <b>{item.title}</b>{" "}
+                {/* {item.id}- */} <b>{item.title}</b>{" "}
+                {/* <button onClick={() => eventHandler(item.id)}>Detail</button> */}
                 <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
               </p>
               {item.descript}
             </li>
           ))}
-        </ul> */}
-        {/* <br /> */}
-      </aside>
+        </ul>
+        <br />
+      </div>
+      <div className="main tile">
+        {prodId !== 0 && <Detail prodId={prodId} setProdId={setProdId} />}
+      </div>
     </>
   );
 }
@@ -1240,10 +1082,9 @@ function Cart() {
   return (
     <main>
       <b>Warenkorb</b>
-      <br />
-      {`ID:${getCartUuid()}`}
+      <p>{`ID:${getCartUuid()}`}</p>
       {/* <p>{`ID:${cartUuid}`}</p> */}
-      {/* <br /> */}
+      <br />
       <ul>
         {state.products.map((item) => (
           <li key={item.id}>
@@ -1282,10 +1123,10 @@ function Cart() {
 function Catalog() {
   return (
     <>
-      {/* <Menu /> */}
-      <Outlet />
-      {/* <main>
-      </main> */}
+      <Menu />
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 }
@@ -1295,26 +1136,26 @@ function Header() {
     <>
       <header>
         <h1>MassAnzug Service</h1>
-        <p>
-          <Link to="/shop/products">|Produkte</Link>
-          <Link to="/shop/cart">|Warenkorb</Link>
-          <Link to="/contact">|Kontakt</Link>
-        </p>
-        <Menu />
-        {/* <div className="">
-          <ul className="">
+        <div className="">
+          <ul className="navC">
             <li>
               <Link to="/shop/products">|Produkte</Link>
             </li>
             <li>
               <Link to="/shop/cart">|Warenkorb</Link>
             </li>
+            {/* <li>
+              <Link to="/service">|Service Infos</Link>
+            </li> */}
             <li>
               <Link to="/contact">|Kontakt</Link>
             </li>
+            {/* <li>
+              <Link to="/form">Form</Link>
+            </li> */}
           </ul>
           <br />
-        </div> */}
+        </div>
       </header>
     </>
   );
@@ -1326,7 +1167,7 @@ function Footer() {
 
 const Layout = () => {
   return (
-    <div id="container">
+    <div id="wrapper">
       <Header />
       <Outlet />
       <Footer />
@@ -1341,7 +1182,6 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="gallery" element={<MyGallery />} />
           <Route path="service" element={<ServiceInfo />} />
           {/* <Route path="cart" element={<Cart />} /> */}
           {/* <Route path="shop" element={<Shop />}> */}
@@ -1470,7 +1310,7 @@ function Checkout() {
           <b>KundenInformationen</b>
         </p>
         {/* <p>{`ID:${getCartUuid()}`}</p> */}
-        {/* <br /> */}
+        <br />
         {/* <button onClick={() => navigate("/shop/products")}>Zum Katalog</button> */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={fieldStyle}>
