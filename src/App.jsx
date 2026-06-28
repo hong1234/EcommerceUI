@@ -963,6 +963,7 @@ function SelectList() {
   if (!products.length) {
     return (
       <>
+        <Header />
         <aside className="">
           <p>Keine Produkte in der Kategorie {`"${category}"`}</p>
         </aside>
@@ -972,16 +973,11 @@ function SelectList() {
 
   return (
     <>
+      {/* <Menu /> */}
+      {/* <Header /> */}
       {/* <main className="">
         {prodId !== 0 && <Detail prodId={prodId} setProdId={setProdId} />}
       </main> */}
-      {prodId !== 0 ? (
-        <main>
-          <Detail prodId={prodId} setProdId={setProdId} />
-        </main>
-      ) : (
-        <></>
-      )}
       <aside className="">
         {/* <Cart />
         <br /> */}
@@ -1000,11 +996,15 @@ function SelectList() {
             <></>
           )}
         </p>
-        {/* <br /> */}
-        {/* <br /> */}
         {products.map((item) => (
           <p key={item.id}>
-            <FaStar color="red" /> {item.title}{" "}
+            {/* <FaStar color="red" />  */}
+            <img
+              className=""
+              src={`/images/thumbs/${getImages(item.imagename)[0]}`}
+              alt="photo"
+            />
+            {item.title}{" "}
             <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
           </p>
           // {item.descript}
@@ -1023,6 +1023,13 @@ function SelectList() {
         </ul> */}
         {/* <br /> */}
       </aside>
+      {prodId !== 0 ? (
+        <main>
+          <Detail prodId={prodId} setProdId={setProdId} />
+        </main>
+      ) : (
+        <></>
+      )}
     </>
   );
 }
@@ -1064,16 +1071,11 @@ function Best() {
 
   return (
     <>
+      {/* <Menu /> */}
+      {/* <Header /> */}
       {/* <main className="">
         {prodId !== 0 && <Detail prodId={prodId} setProdId={setProdId} />}
       </main> */}
-      {prodId !== 0 ? (
-        <main>
-          <Detail prodId={prodId} setProdId={setProdId} />
-        </main>
-      ) : (
-        <></>
-      )}
       <aside className="">
         {/* <Cart />
         <br /> */}
@@ -1095,13 +1097,26 @@ function Best() {
         </ul> */}
         {products.map((item) => (
           <p key={item.id}>
-            <FaStar color="red" /> {item.title}{" "}
+            {/* <FaStar color="red" />  */}
+            <img
+              className=""
+              src={`/images/thumbs/${getImages(item.imagename)[0]}`}
+              alt="photo"
+            />
+            {item.title}{" "}
             <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
           </p>
           // {item.descript}
         ))}
         {/* <br /> */}
       </aside>
+      {prodId !== 0 ? (
+        <main>
+          <Detail prodId={prodId} setProdId={setProdId} />
+        </main>
+      ) : (
+        <></>
+      )}
     </>
   );
 }
@@ -1142,6 +1157,7 @@ function SearchList() {
   if (!products.length) {
     return (
       <>
+        <Header />
         <aside className="">
           {/* <Cart />
           <br /> */}
@@ -1153,16 +1169,11 @@ function SearchList() {
 
   return (
     <>
+      {/* <Menu /> */}
+      {/* <Header /> */}
       {/* <main className="">
         {prodId !== 0 && <Detail prodId={prodId} setProdId={setProdId} />}
       </main> */}
-      {prodId !== 0 ? (
-        <main>
-          <Detail prodId={prodId} setProdId={setProdId} />
-        </main>
-      ) : (
-        <></>
-      )}
       <aside className="">
         {/* <Cart /> */}
         {/* <p>
@@ -1170,7 +1181,13 @@ function SearchList() {
         </p> */}
         {products.map((item) => (
           <p key={item.id}>
-            <FaStar color="red" /> {item.title}{" "}
+            {/* <FaStar color="red" />  */}
+            <img
+              className=""
+              src={`/images/thumbs/${getImages(item.imagename)[0]}`}
+              alt="photo"
+            />
+            {item.title}{" "}
             <BsArrowRightSquare onClick={() => eventHandler(item.id)} />
           </p>
           // {item.descript}
@@ -1189,6 +1206,13 @@ function SearchList() {
         </ul> */}
         {/* <br /> */}
       </aside>
+      {prodId !== 0 ? (
+        <main>
+          <Detail prodId={prodId} setProdId={setProdId} />
+        </main>
+      ) : (
+        <></>
+      )}
     </>
   );
 }
@@ -1224,9 +1248,7 @@ function Cart() {
     <main>
       <b>Warenkorb</b>
       <br />
-      {`ID:${getCartUuid()}`}
-      {/* <p>{`ID:${cartUuid}`}</p> */}
-      {/* <br /> */}
+      {/* {`ID:${getCartUuid()}`} */}
       <ul>
         {state.products.map((item) => (
           <li key={item.id}>
@@ -1262,24 +1284,23 @@ function Cart() {
   );
 }
 
-// function Catalog() {
-//   return (
-//     <>
-//       {/* <Menu /> */}
-//       <Outlet />
-//       {/* <main>
-//       </main> */}
-//     </>
-//   );
-// }
+function Shop() {
+  return (
+    <>
+      {/* <Menu /> */}
+      <Outlet />
+      {/* <main>
+      </main> */}
+    </>
+  );
+}
 
 function Header() {
   return (
     <>
       <header>
         <h1>MassAnzug Service</h1>
-        {/* <p></p> */}
-        <Link to="/shop/products">|Produkte</Link>
+        <Link to="/shop">|Bestseller</Link>
         <Link to="/shop/cart">|Warenkorb</Link>
         <Link to="/contact">|Kontakt</Link>
         <Menu />
@@ -1308,11 +1329,19 @@ function Footer() {
 
 const Layout = () => {
   return (
-    <div id="container">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <>
+      {/* <div>
+        <h1>MassAnzug Service</h1>
+        <Link to="/shop/products">|Produkte</Link>
+        <Link to="/shop/cart">|Warenkorb</Link>
+        <Link to="/contact">|Kontakt</Link>
+      </div> */}
+      <div id="container">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </>
   );
 };
 
@@ -1323,25 +1352,28 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="gallery" element={<MyGallery />} />
-          <Route path="service" element={<ServiceInfo />} />
+          {/* <Route path="gallery" element={<MyGallery />} /> */}
+          {/* <Route path="service" element={<ServiceInfo />} /> */}
           {/* <Route path="cart" element={<Cart />} /> */}
           {/* <Route path="shop" element={<Shop />}> */}
-          {/* <Route path="shop/products" element={<Catalog />}>
+          <Route path="shop" element={<Shop />}>
             <Route index element={<Best />} />
-            <Route path=":category/:page" element={<SelectList />} />
-            <Route path="search" element={<SearchList />} />
-          </Route> */}
-          <Route path="shop/products" element={<Best />} />
+            <Route path="products/:category/:page" element={<SelectList />} />
+            <Route path="products/search" element={<SearchList />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="order/:cartUuid" element={<Order />} />
+          </Route>
+          {/* <Route path="shop/products" element={<Best />} />
           <Route
             path="shop/products/:category/:page"
             element={<SelectList />}
           />
-          <Route path="shop/products/search" element={<SearchList />} />
-          {/* <Route path="path="shop/products/:prodId" element={<Product />} /> */}
-          <Route path="shop/cart" element={<Cart />} />
+          <Route path="shop/products/search" element={<SearchList />} /> */}
+          {/* <Route path="shop/products/:prodId" element={<Product />} /> */}
+          {/* <Route path="shop/cart" element={<Cart />} />
           <Route path="shop/checkout" element={<Checkout />} />
-          <Route path="shop/order/:cartUuid" element={<Order />} />
+          <Route path="shop/order/:cartUuid" element={<Order />} /> */}
 
           {/* <Route path="form" element={<EmailValidationForm />} />
           <Route path="form1" element={<Form />} />
@@ -1551,7 +1583,7 @@ function Home() {
   const navigate = useNavigate();
   useEffect(() => {
     if (shouldRedirect) {
-      navigate("/shop/products");
+      navigate("/shop");
     }
   });
   return <h4>Home</h4>;

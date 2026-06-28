@@ -175,10 +175,12 @@ footer {
     display: grid;
     grid-template-rows: auto min-height 5em;
     /* grid-template-columns: minmax(25em, 1fr) 16em; */
-    grid-template-columns: minmax(25em, 1fr) 20em;
+    /* grid-template-columns: minmax(25em, 1fr) 20em; */
+    grid-template-columns: 25em minmax(25em, 1fr);
     grid-template-areas:
       "banner banner"
-      "main hours"
+      /* "main hours" */
+      "hours main"
       "footer footer";
     max-width: 1200px;
     margin: 0 auto;
